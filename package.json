@@ -1,0 +1,29 @@
+{
+  "name": "stubcell",
+  "version": "0.1.0",
+  "description": "stub server tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yosuke-furukawa/stubcell"
+  },
+  "keywords": [
+    "stub",
+    "http",
+    "server"
+  ],
+  "author": "yosuke-furukawa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yosuke-furukawa/stubcell/issues"
+  },
+  "homepage": "https://github.com/yosuke-furukawa/stubcell",
+  "dependencies": {
+    "lodash": "^2.4.1",
+    "nock": "^0.28.2",
+    "yamljs": "^0.1.5"
+  }
+}
