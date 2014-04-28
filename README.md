@@ -4,7 +4,7 @@ Stubcell [![Build Status](https://travis-ci.org/yosuke-furukawa/stubcell.svg?bra
 Stub Server for test project.
 
 
-Some Stub server has some disappointing points.
+Some Stub servers have some disappointing points.
 
 - cannot check the response JSON when JSON response.
 - does not use JSON5, so i cannot write comments in the JSON file.
@@ -15,6 +15,7 @@ Features
 
 Stubcell has the following features.
 
+- emulate response files
 - response value can be written in JSON5
 - validate JSON in stub server.
 - don't launch https server :)
