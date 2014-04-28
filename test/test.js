@@ -51,6 +51,25 @@ describe('Stubcell server', function(){
       });
 
     });
+    it("should return error for error.json", function(done){
+      http.get("http://localhost:3000/error/", function(res){
+        var data = '';
+        assert.equal(res.statusCode, 500);
+        res.on("data", function(chunk) {
+          data += chunk;
+        });
+        res.on("end", function() {
+          try {
+            data = JSON.parse(data);
+            assert.equal(data.error, "Unexpected token }");
+            done();
+          } catch (e) {
+            console.error(e);
+          }
+        });
+      });
+
+    });
   });
 });
 

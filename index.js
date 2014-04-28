@@ -5,7 +5,6 @@ var yaml = require('yamljs');
 var express = require('express');
 var app = express();
 
-
 module.exports = StubCell;
 function StubCell() {}
 
@@ -47,7 +46,13 @@ StubCell.prototype.server = function() {
         if (err) throw err;
         var jsonData;
         if (expectJSON) {
-          data = this._parseJSON(data, ext === ".json5");
+          try {
+            data = this._parseJSON(data, ext === ".json5");
+          } catch(e) {
+            console.log("\033[31m" + "Error occurred in " + file + "\033[39m");
+            console.log(e.stack);
+            res.send(500, { error : e.message });
+          }
         }
         res.send(data);
       }.bind(this));
