@@ -1,4 +1,4 @@
-Stubcell
+Stubcell [![Build Status](https://travis-ci.org/yosuke-furukawa/stubcell.svg?branch=master)](https://travis-ci.org/yosuke-furukawa/stubcell)
 ---------------
 
 Stub Server for test project.
