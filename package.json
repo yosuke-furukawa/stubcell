@@ -22,10 +22,8 @@
   },
   "homepage": "https://github.com/yosuke-furukawa/stubcell",
   "dependencies": {
-    "JSONStream": "^0.7.2",
+    "express": "^4.1.1",
     "json5": "^0.2.0",
-    "lodash": "^2.4.1",
-    "nock": "^0.28.2",
     "yamljs": "^0.1.5"
   },
   "devDependencies": {

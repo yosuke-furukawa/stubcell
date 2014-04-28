@@ -2,7 +2,6 @@ var path = require('path');
 var fs = require("fs");
 var JSON5 = require("json5");
 var yaml = require('yamljs');
-var _ = require('lodash');
 var express = require('express');
 var app = express();
 
