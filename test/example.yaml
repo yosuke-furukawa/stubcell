@@ -4,24 +4,28 @@
     method: GET
   response:
     status: 200
-    headers:
-      content-type: application/json
-    file: test/example.json5
 -
   request:
-    url: /test/
+    url: /
     method: GET
   response:
     status: 200
-    headers:
-      content-type: application/json
-    file: test/example.json
 -
   request:
     url: /error/
     method: GET
   response:
     status: 200
-    headers:
-      content-type: application/json
-    file: test/error.json
+-
+  request:
+    url: /example/abc
+    method: GET
+  response:
+    status: 200
+-
+  request:
+    url: /example2/abc
+    method: GET
+  response:
+    status: 200
+    file: test/example.json
