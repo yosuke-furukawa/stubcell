@@ -39,30 +39,35 @@ $ npm install stubcell -D
     method: GET
   response:
     status: 200
-    headers:
-      content-type: application/json
-    file: test/example.json5
+    file: test/id.json
 -
   request:
     url: /test/
-    method: GET
+    method: get
   response:
     status: 200
-    headers:
-      content-type: application/json
-    file: test/example.json
+    file: test.json
+
+# if file is not specified, url path become the response filepath
+# like /abc/abc.json
+-
+  request:
+    url: /abc/abc
+    method: get
+  response:
+    status: 200
 
 ```
 
 ## need to write jsons
 
-### test/example.json5
+### test/example.json
 
 ```javascript
 {
   // test comment
   // we can write comment in JSON.
-  "message" : "Hello world"
+  message : "Hello world", // can write trailing comma.
 }
 ```
 
@@ -76,13 +81,14 @@ stubcell.loadEntry(__dirname + "/example.yaml");
 var app = stubcell.server();
 var server = app.listen(3000);
 
-http.get("http://localhost:3000/test/abc", function(res){
+http.get("http://localhost:3000/test/1", function(res){
   var data = '';
   res.on("data", function(chunk) {
     data += chunk;
   });
   res.on("end", function() {
     try {
+      // { "message" : "Hello world" }
       console.log(data);
       server.close();
     } catch (e) {
