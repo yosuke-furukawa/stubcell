@@ -4,7 +4,7 @@
   "description": "stub server tool",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha --require intelli-espower-loader"
   },
   "repository": {
     "type": "git",
@@ -21,13 +21,18 @@
     "url": "https://github.com/yosuke-furukawa/stubcell/issues"
   },
   "homepage": "https://github.com/yosuke-furukawa/stubcell",
+  "directories": {
+    "test": "test/"
+  },
   "dependencies": {
     "express": "^4.1.1",
     "json5": "^0.2.0",
     "yamljs": "^0.1.5"
   },
   "devDependencies": {
+    "espower-loader": "^0.7.0",
+    "intelli-espower-loader": "^0.1.0",
     "mocha": "^1.18.2",
-    "power-assert": "^0.6.1"
+    "power-assert": "^0.7.1"
   }
 }
