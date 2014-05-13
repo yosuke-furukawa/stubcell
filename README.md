@@ -6,7 +6,7 @@ Stub Server for test project.
 
 Some Stub servers have some disappointing points.
 
-- cannot check the response JSON when JSON response.
+- cannot validate JSON.
 - does not use JSON5, so i cannot write comments in the JSON file.
 - launch https server by default (Stubby...)
 
