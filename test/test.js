@@ -50,12 +50,12 @@ describe('Stubcell server', function(){
           data += chunk;
         });
         res.on("end", function() {
-          console.log(data);
+          //console.log(data);
           try {
-            assert.equal("Hello world", JSON.parse(data).message);
+            assert.equal(JSON.parse(data).message, "Hello world");
             done();
           } catch (e) {
-            console.error(e);
+            done(e);
           }
         });
       });
@@ -69,10 +69,10 @@ describe('Stubcell server', function(){
         });
         res.on("end", function() {
           try {
-            assert.equal("Hello world world", JSON.parse(data).message);
+            assert.equal(JSON.parse(data).message, "Hello world world");
             done();
           } catch (e) {
-            console.error(e);
+            done(e);
           }
         });
       });
@@ -86,10 +86,10 @@ describe('Stubcell server', function(){
         });
         res.on("end", function() {
           try {
-            assert.equal("abc", JSON.parse(data).message);
+            assert.equal(JSON.parse(data).message, "abc");
             done();
           } catch (e) {
-            console.error(e);
+            done(e);
           }
         });
       });
@@ -102,10 +102,10 @@ describe('Stubcell server', function(){
         });
         res.on("end", function() {
           try {
-            assert.equal("example", JSON.parse(data).message);
+            assert.equal(JSON.parse(data).message, "example");
             done();
           } catch (e) {
-            console.error(e);
+            done(e);
           }
         });
       });
@@ -123,7 +123,7 @@ describe('Stubcell server', function(){
             assert.equal(data.error, "Bad object");
             done();
           } catch (e) {
-            console.error(e);
+            done(e);
           }
         });
       });
@@ -131,4 +131,3 @@ describe('Stubcell server', function(){
     });
   });
 });
-
