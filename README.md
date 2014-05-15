@@ -19,6 +19,7 @@ Stubcell has the following features.
 - response value can be written in JSON5
 - validate JSON in stub server.
 - don't launch https server :)
+- Support JSON-RPC (2014/05/14)
 
 
 How to use
@@ -57,6 +58,19 @@ $ npm install stubcell -D
   response:
     status: 200
 
+# support json-rpc
+-
+  request:
+    url: /jsonrpc
+    method: POST
+    body:
+      # need jsonrpc prop.
+      jsonrpc: 2.0
+      method: sum
+      params: [123, 456]
+  response:
+    status: 200
+    file: jsonrpc_sum.json
 ```
 
 ## need to write jsons
@@ -68,6 +82,18 @@ $ npm install stubcell -D
   // test comment
   // we can write comment in JSON.
   message : "Hello world", // can write trailing comma.
+}
+```
+
+### jsonrpc_sum.json
+
+```javascript
+// for jsonrpc
+// !NOTE! only write result value
+// not include id and jsonrpc properties.
+{
+  // sum [123, 456]
+  result: 579
 }
 ```
 

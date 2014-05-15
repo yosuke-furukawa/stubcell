@@ -130,4 +130,5 @@ describe('Stubcell server', function(){
 
     });
   });
+
 });

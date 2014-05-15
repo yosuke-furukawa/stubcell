@@ -1,0 +1,7 @@
+// for jsonrpc
+// !NOTE! only write result value
+// not include id and jsonrpc properties.
+{
+  // sum [123, 456]
+  result: 579
+}
