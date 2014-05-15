@@ -25,6 +25,8 @@
     "test": "test/"
   },
   "dependencies": {
+    "body-parser": "^1.2.0",
+    "deep-equal": "^0.2.1",
     "express": "^4.1.1",
     "json5": "^0.2.0",
     "yamljs": "^0.1.5"

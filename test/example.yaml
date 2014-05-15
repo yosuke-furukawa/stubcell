@@ -29,3 +29,27 @@
   response:
     status: 200
     file: test/example.json
+-
+  #jsonrpc sum
+  request:
+    url: /jsonrpc
+    method: POST
+    body:
+      jsonrpc: 2.0
+      method: sum
+      params: [123, 456]
+  response:
+    status: 200
+    file: test/jsonrpc/sum.json
+-
+  #jsonrpc subtract
+  request:
+    url: /jsonrpc
+    method: POST
+    body:
+      jsonrpc: 2.0
+      method: subtract
+      params: [456, 123]
+  response:
+    status: 200
+    file: test/jsonrpc/subtract.json
