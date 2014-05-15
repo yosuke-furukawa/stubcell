@@ -51,15 +51,26 @@ StubCell.prototype.fileFromRequest = function(requestUrl, filepath) {
 };
 
 StubCell.prototype._setupEntry = function(entry) {
-  var method = entry.request.method.toLowerCase();
+  // HTTP method
+  var method = entry.request.method || throw new Error("need method");
+  method = method.toLowerCase();
+  // HTTP url
+  var requestUrl = entry.request.url || throw new Error("need url");
+  // HTTP body
+  var entryBody = entry.request.body || {};
+
+  // response data
   var response = entry.response;
   var headers = response.headers || {};
-  var requestUrl = entry.request.url;
   var file = response.file || this.basePath + this.fileFromRequest(requestUrl, response.file);
-  var ext = path.extname(file);
-  app[method](requestUrl, function(req, res) {
+
+  app[method](requestUrl, function(req, res, next) {
     var expectJSON = true;
     var hasContentType = false;
+    var body = req.body || {};
+    if (entryBody.jsonrpc === body.jsonrpc) {
+      Body.method = req.body.method;
+    }
     Object.keys(headers).forEach(function(key) {
       res.setHeader(key, headers[key]);
       if (!hasContentType) {
