@@ -49,7 +49,6 @@
     body:
       jsonrpc: 2.0
       method: subtract
-      params: [456, 123]
   response:
     status: 200
     file: test/jsonrpc/subtract.json
