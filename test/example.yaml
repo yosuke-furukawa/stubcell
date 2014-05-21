@@ -18,6 +18,28 @@
     status: 200
 -
   request:
+    url: /example/query
+    method: GET
+    query:
+      q: test
+      t: 1234
+  response:
+    status: 200
+-
+  request:
+    url: /example/query
+    method: POST
+    query:
+      q: test
+      t: 1234
+    body:
+      test: test
+      id: 1234
+  response:
+    status: 200
+    file: test/example/querybody.json
+-
+  request:
     url: /example/abc
     method: GET
   response:
@@ -41,14 +63,3 @@
   response:
     status: 200
     file: test/jsonrpc/sum.json
--
-  #jsonrpc subtract
-  request:
-    url: /jsonrpc
-    method: POST
-    body:
-      jsonrpc: 2.0
-      method: subtract
-  response:
-    status: 200
-    file: test/jsonrpc/subtract.json

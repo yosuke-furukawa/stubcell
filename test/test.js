@@ -3,7 +3,7 @@ var stubcell = new StubCell();
 var http = require("http");
 var assert = require("power-assert");
 
-stubcell.loadEntry(__dirname + "/example.yaml");
+stubcell.loadEntry(__dirname + "/example.yaml", "", true);
 var app = stubcell.server();
 describe('Stubcell return filepath', function(){
   describe("/", function(){
