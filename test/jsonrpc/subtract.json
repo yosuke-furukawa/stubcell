@@ -1,8 +1,0 @@
-// for jsonrpc subtract
-// !NOTE! only write result value
-// not include id and jsonrpc properties.
-{
-  // subtract [456, 123]
-  result: 333
-}
-
