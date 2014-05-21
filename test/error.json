@@ -1,3 +1,6 @@
+// this json is broken
+// json should have end brackets.
+// but this json does not have end brackets
 {
   "message" : "Hello world world",
 
