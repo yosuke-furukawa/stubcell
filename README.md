@@ -20,6 +20,7 @@ Stubcell has the following features.
 - validate JSON in stub server.
 - don't launch https server :)
 - Support JSON-RPC (2014/05/14)
+- Support querystring and body (2014/05/21)
 
 
 How to use
@@ -71,6 +72,19 @@ $ npm install stubcell -D
   response:
     status: 200
     file: jsonrpc_sum.json
+
+# support querystring and body
+-
+  request:
+    url: /querystringbody
+    method: POST
+    query:
+      q: yosuke
+    body:
+      test: 123
+  response:
+    status: 200
+    file: querystringbody.json
 ```
 
 ## need to write jsons
