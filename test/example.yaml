@@ -15,7 +15,7 @@
     url: /error/
     method: GET
   response:
-    status: 200
+    status: 500
 -
   request:
     url: /example/abc
