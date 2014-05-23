@@ -21,6 +21,7 @@ Stubcell has the following features.
 - don't launch https server :)
 - Support JSON-RPC (2014/05/14)
 - Support querystring and body (2014/05/21)
+- Support recording json (2014/05/23)
 
 
 How to use
@@ -138,4 +139,61 @@ http.get("http://localhost:3000/test/1", function(res){
 });
 ```
 
+## options
+
+```javascript
+var StubCell = require("../index");
+var stubcell = new StubCell();
+var http = require("http");
+var options = {
+  // show more detail information
+  debug : true, // default is false
+  // json base path, stubcell return json from  basepath + "/" + filepath
+  basepath : "", // default is yaml parent dir.
+  // request to backend server and record json file.
+  record: {
+    // show more detail information
+    debug : true, // default is false
+    // json store base path
+    basepath: "", // default is options.basepath
+    // request redirectTo.
+    proxy : "http://localhost:3001" // default is http://localhost:3001
+  }
+};
+stubcell.loadEntry(__dirname + "/example.yaml");
+var app = stubcell.server();
+var server = app.listen(3000);
+
+http.get("http://localhost:3000/test/1", function(res){
+  var data = '';
+  res.on("data", function(chunk) {
+    data += chunk;
+  });
+  res.on("end", function() {
+    try {
+      // { "message" : "Hello world" }
+      console.log(data);
+      server.close();
+    } catch (e) {
+      console.error(e);
+    }
+  });
+});
+
+http.get("http://localhost:3000/will_be_recorded", function(res){
+  var data = '';
+  res.on("data", function(chunk) {
+    data += chunk;
+  });
+  res.on("end", function() {
+    try {
+      // will_be_recorded.json is recorded.
+      console.log(data);
+      server.close();
+    } catch (e) {
+      console.error(e);
+    }
+  });
+});
+```
 

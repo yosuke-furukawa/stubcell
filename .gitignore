@@ -1,2 +1,5 @@
 node_modules
 *.swp
+test/jsonrpc/dummyrpc.json
+test/wouldliketorecord.json
+
