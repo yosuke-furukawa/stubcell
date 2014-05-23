@@ -1,9 +1,9 @@
 var StubCell = require("../index");
-var stubcell = new StubCell();
 var http = require("http");
 var assert = require("power-assert");
 
-stubcell.loadEntry(__dirname + "/example.yaml", "", true);
+var stubcell = new StubCell();
+stubcell.loadEntry(__dirname + "/example.yaml", {basepath: "", debug: true});
 var app = stubcell.server();
 describe('Stubcell return filepath', function(){
   describe("/", function(){

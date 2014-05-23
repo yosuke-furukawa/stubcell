@@ -26,10 +26,11 @@
   },
   "dependencies": {
     "body-parser": "^1.2.0",
+    "deep-equal": "~0.2.1",
     "express": "^4.1.1",
     "json5": "^0.2.0",
-    "yamljs": "^0.1.5",
-    "deep-equal": "~0.2.1"
+    "stubrec": "^0.2.0",
+    "yamljs": "^0.1.5"
   },
   "devDependencies": {
     "espower-loader": "^0.7.0",
