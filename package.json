@@ -29,7 +29,7 @@
     "deep-equal": "~0.2.1",
     "express": "^4.1.1",
     "json5": "^0.2.0",
-    "stubrec": "^0.2.0",
+    "stubrec": "~0.2.2",
     "yamljs": "^0.1.5"
   },
   "devDependencies": {
