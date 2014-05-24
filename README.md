@@ -160,7 +160,7 @@ var options = {
     proxy : "http://localhost:3001" // default is http://localhost:3001
   }
 };
-stubcell.loadEntry(__dirname + "/example.yaml");
+stubcell.loadEntry(__dirname + "/example.yaml", options);
 var app = stubcell.server();
 var server = app.listen(3000);
 
