@@ -157,7 +157,7 @@ var options = {
     // json store base path
     basepath: "", // default is options.basepath
     // request redirectTo.
-    proxy : "http://localhost:3001" // default is http://localhost:3001
+    proxy : "http://echo.jsontest.com" // default is http://localhost:3001
   }
 };
 stubcell.loadEntry(__dirname + "/example.yaml", options);
@@ -173,23 +173,22 @@ http.get("http://localhost:3000/test/1", function(res){
     try {
       // { "message" : "Hello world" }
       console.log(data);
-      server.close();
     } catch (e) {
       console.error(e);
     }
   });
 });
 
-http.get("http://localhost:3000/will_be_recorded", function(res){
+http.get("http://localhost:3000/hello/world", function(res){
   var data = '';
   res.on("data", function(chunk) {
     data += chunk;
   });
   res.on("end", function() {
     try {
-      // will_be_recorded.json is recorded.
+      // { "hello": "world" }
+      // and record the json to __dirname/hello/world.json
       console.log(data);
-      server.close();
     } catch (e) {
       console.error(e);
     }
