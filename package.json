@@ -25,7 +25,7 @@
     "test": "test/"
   },
   "bin": {
-    "stubcell": "bin/cli.js"
+    "stubcell": "bin/stubcell.js"
   },
   "dependencies": {
     "body-parser": "^1.2.0",
