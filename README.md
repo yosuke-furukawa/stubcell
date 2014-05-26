@@ -22,6 +22,7 @@ Stubcell has the following features.
 - Support JSON-RPC (2014/05/14)
 - Support querystring and body (2014/05/21)
 - Support recording json (2014/05/23)
+- Support Command Line tool
 
 
 How to use
@@ -194,5 +195,32 @@ http.get("http://localhost:3000/hello/world", function(res){
     }
   });
 });
+```
+
+How to use in CLI
+---------------
+
+```sh
+$ npm install stubcell -g
+```
+
+```sh
+$ stubcell --port 3000 --entry ./entry.yaml --record_proxy http://echo.jsontest.com
+```
+
+## commandline arguments
+
+```sh
+
+  Usage: stubcell [options]
+
+  Options:
+
+      -h, --help                            output usage information
+      -V, --version                         output the version number
+      --port <n>                            server start port, default is 8090
+      --entry [entry filepath]              entry yaml file, default is /Users/furukawa.yosuke/Program/stubcell/entry.yaml
+      --record_proxy [record proxy server]  record proxy server, default is null (no record file)
+      --silent                              hide detail info, default is false
 ```
 
