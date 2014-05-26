@@ -22,4 +22,10 @@ if(record.proxy) record.debug = debug;
 stubcell.loadEntry(entry, {debug: debug, record: record});
 var app = stubcell.server();
 
-app.listen(port);
+var app = app.listen(port);
+app.on("listening", function(){
+  console.log("\033[32m" + "Listening on " + port+"\033[39m");
+  console.log("\033[32m" + "entry yaml is " + entry+"\033[39m");
+  console.log("\033[32m" + "silent is " + !debug+"\033[39m");
+  console.log("\033[32m" + "record proxy is " + record.proxy+"\033[39m");
+});
