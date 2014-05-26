@@ -24,12 +24,16 @@
   "directories": {
     "test": "test/"
   },
+  "bin": {
+    "stubcell": "bin/cli.js"
+  },
   "dependencies": {
     "body-parser": "^1.2.0",
+    "commander": "^2.2.0",
     "deep-equal": "~0.2.1",
     "express": "^4.1.1",
     "json5": "^0.2.0",
-    "stubrec": "~0.2.2",
+    "stubrec": "^0.2.3",
     "yamljs": "^0.1.5"
   },
   "devDependencies": {
