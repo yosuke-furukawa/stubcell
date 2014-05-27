@@ -42,7 +42,7 @@ describe('Stubcell server', function(){
         res.on("end", function() {
           try {
             assert.equal(JSON.parse(data).hello, "world");
-            fs.readFile("./test/wouldliketorecord.json", function(err, d) {
+            fs.readFile("./test/wouldliketorecord_get.json", function(err, d) {
               assert.deepEqual(JSON.parse(d), JSON.parse('{"hello":"world"}'));
               done();
             });
