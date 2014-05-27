@@ -16,7 +16,7 @@ Features
 Stubcell has the following features.
 
 - emulate response files
-- response value can be written in JSON5
+- response value can be written in JSON5 (JSON file is more readable and human friendly ♡)
 - validate JSON in stub server.
 - Support JSON-RPC (2014/05/14)
 - Support querystring and body (2014/05/21)
