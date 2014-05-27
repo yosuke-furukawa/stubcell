@@ -43,6 +43,24 @@ describe('Stubcell server', function(){
     server.close();
   });
   describe("request", function(){
+    it("should return 'yes i am' for directly body set", function(done){
+      http.get("http://localhost:3000/abdul", function(res){
+        var data = '';
+        res.on("data", function(chunk) {
+          data += chunk;
+        });
+        res.on("end", function() {
+          //console.log(data);
+          try {
+            assert.equal(JSON.parse(data).message, "yes i am");
+            done();
+          } catch (e) {
+            done(e);
+          }
+        });
+      });
+
+    });
     it("should return hello world for id.json", function(done){
       http.get("http://localhost:3000/test/1", function(res){
         var data = '';
