@@ -1,0 +1,17 @@
+-
+  request:
+    url: $finally
+    method: ALL
+  response:
+    status: 200
+    body: '{message:"data lack require params"}'
+-
+  request:
+    url: /loose/:id
+    method: GET
+    query:
+      require1: 1
+      require2: 2
+  response:
+    status: 200
+    body: '{message:"include"}'
