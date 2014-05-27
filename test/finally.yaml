@@ -1,0 +1,13 @@
+-
+  request:
+    url: $finally
+    method: ALL
+  response:
+    status: 200
+    body: '{message: "you look me!"}'
+-
+  request:
+    url: /test/:id
+    method: GET
+  response:
+    status: 200
