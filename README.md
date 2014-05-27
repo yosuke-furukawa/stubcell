@@ -7,7 +7,7 @@ Stub Server for test project.
 Some Stub servers have some disappointing points.
 
 - cannot validate JSON.
-- does not use JSON5, so i cannot write comments in the JSON file.
+- does not use JSON5, so i cannot write comments in the JSON file and cannot write trailing comma.
 - launch https server by default (Stubby...)
 
 Features
@@ -18,12 +18,19 @@ Stubcell has the following features.
 - emulate response files
 - response value can be written in JSON5
 - validate JSON in stub server.
-- don't launch https server :)
 - Support JSON-RPC (2014/05/14)
 - Support querystring and body (2014/05/21)
 - Support recording json (2014/05/23)
-- Support Command Line tool
+- Support Command Line tool (2014/05/26)
 
+Difference from other stub tools
+-----------------
+
+- [stubby](https://github.com/mrak/stubby4node) always launch https server and cannot validate json, so if json is invalid, you should check the value in client side.
+
+- [easymock](https://github.com/CyberAgent/node-easymock) is so simple, but it depends on sqlite3, and could not write comment in JSON file and could not validate json.
+
+stubcell can check JSON and write comments in your JSON file, so you can write the specification in detail. stubcell is more simple than others and dependent libraries are small.
 
 How to use
 ---------------
@@ -31,18 +38,25 @@ How to use
 ## Install
 
 ```sh
-$ npm install stubcell -D
+$ npm install stubcell
 ```
 
 ## need to write entry yaml
 
 ```yaml
 -
+  # request content
   request:
+    # request url
+    # :id is id params, so it matches /test/aaa, /test/1, /test/hello
     url: /test/:id
+    # http method, GET, POST, PUT, DELETE
     method: GET
+  # response content
   response:
+    # status value 200, 404, 500 etc..
     status: 200
+    # response body json path.
     file: test/id.json
 -
   request:
@@ -52,8 +66,11 @@ $ npm install stubcell -D
     status: 200
     file: test.json
 
-# if file is not specified, url path become the response filepath
-# like /abc/abc.json
+# if response/file is not specified, url and method become the response filepath
+# like /abc/abc_get.json
+# the algorithm is <url>_<method>.json
+# if url is /echo/yosuke/hoge and method is PUT and entry.yaml is /usr/test/stubcell/entry.yaml
+# stubcell looks up /usr/test/stubcell/echo/yosuke/hoge_put.json
 -
   request:
     url: /abc/abc
@@ -67,21 +84,23 @@ $ npm install stubcell -D
     url: /jsonrpc
     method: POST
     body:
-      # need jsonrpc prop.
+      # if your server accept jsonrpc, need jsonrpc prop.
       jsonrpc: 2.0
+      # need jsonrpc method prop.
       method: sum
-      params: [123, 456]
   response:
     status: 200
-    file: jsonrpc_sum.json
+    file: jsonrpc/sum.json
 
 # support querystring and body
 -
   request:
     url: /querystringbody
     method: POST
+    # can write query
     query:
       q: yosuke
+    # can write body
     body:
       test: 123
   response:
@@ -101,7 +120,7 @@ $ npm install stubcell -D
 }
 ```
 
-### jsonrpc_sum.json
+### jsonrpc/sum.json
 
 ```javascript
 // for jsonrpc
@@ -224,3 +243,8 @@ $ stubcell --port 3000 --entry ./entry.yaml --record_proxy http://echo.jsontest.
       --silent                              hide detail info, default is false
 ```
 
+How to use in some other frontend tools
+------------------
+
+- [grunt-stubcell](https://github.com/yosuke-furukawa/grunt-stubcell)
+- [gulp-stubcell](https://github.com/yosuke-furukawa/gulp-stubcell)
