@@ -216,6 +216,21 @@ http.get("http://localhost:3000/hello/world", function(res){
 });
 ```
 
+## Use finally routing
+
+you can use finally routing if any request setting matches a current request.
+set `request.url = $finally`, it is replaced with `*` in app's routing.
+
+```yaml
+-
+  request:
+    url: $finally
+    method: ALL
+  response:
+    status: 200
+    body: '{message: "you look me!"}'
+```
+
 How to use in CLI
 ---------------
 
