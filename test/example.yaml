@@ -1,5 +1,12 @@
 -
   request:
+    url: /abdul
+    method: GET
+  response:
+    status: 200
+    body: '{message: "yes i am"}'
+-
+  request:
     url: /test/:id
     method: GET
   response:
