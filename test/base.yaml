@@ -1,0 +1,6 @@
+-
+  request:
+    url: /test/base
+    method: GET
+  response:
+    status: 200

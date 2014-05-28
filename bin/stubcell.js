@@ -7,6 +7,7 @@ var package = require("../package.json");
 program.version(package.version)
        .option("--port <n>", "server start port, default is 8090", parseInt)
        .option("--entry [entry filepath]", "entry yaml file, default is " + process.cwd() + "/entry.yaml ")
+       .option("--basepath [stub json basepath]", "json basepath, default is entry.yaml parent path ")
        .option("--record_proxy [record proxy server]", "record proxy server, default is null (no record file)")
        .option("--silent", "hide detail info, default is false")
        .parse(process.argv)
@@ -14,12 +15,13 @@ program.version(package.version)
 var stubcell = new Stubcell();
 var entry = program.entry || process.cwd() + "/entry.yaml";
 entry = path.resolve(entry);
+var basepath = program.basepath;
 var port = program.port || 8090;
 var debug = !program.silent;
 var record = {};
 if(program.record_proxy) record.proxy = program.record_proxy;
 if(record.proxy) record.debug = debug;
-stubcell.loadEntry(entry, {debug: debug, record: record});
+stubcell.loadEntry(entry, {debug: debug, basepath: basepath, record: record});
 var app = stubcell.server();
 
 var app = app.listen(port);
