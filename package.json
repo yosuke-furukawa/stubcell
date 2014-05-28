@@ -1,6 +1,6 @@
 {
   "name": "stubcell",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "stub server tool",
   "main": "index.js",
   "scripts": {
