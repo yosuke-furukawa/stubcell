@@ -46,7 +46,7 @@ describe('Stubcell server', function(){
             done(e);
           }
         });
-        fs.watch("./test/", function(event, filename) {
+        fs.watch("./test/", { persistent: true }, function(event, filename) {
           console.log("changed file is : ", filename);
           if (filename !== "wouldliketorecord_get.json") return;
           fs.readFile("./test/" + filename, function(err, d) {
