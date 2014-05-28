@@ -33,6 +33,7 @@ describe('Stubcell server', function(){
     server.close();
   });
   describe("request", function(){
+    this.timeout(10000);
     it("should return {hello:world}", function(done){
       http.get("http://localhost:3000/wouldliketorecord", function(res){
         var data = '';
