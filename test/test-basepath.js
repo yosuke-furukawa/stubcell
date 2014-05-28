@@ -51,6 +51,13 @@ describe('Stubcell server should set json basepath', function(){
         res.on("end", function() {
           try {
             assert.equal(JSON.parse(data).test, "record");
+            setTimeout(done, 5000);
+            fs.readFile("./test/base/test/record_get.json", function(err, d) {
+              // error ignore file is not created.
+              if (err) return;
+              assert.deepEqual(JSON.parse(d), JSON.parse('{"test":"record"}'));
+              done();
+            });
           } catch (e) {
             done(e);
           }
