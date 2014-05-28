@@ -42,13 +42,17 @@ describe('Stubcell server', function(){
         res.on("end", function() {
           try {
             assert.equal(JSON.parse(data).hello, "world");
-            fs.readFile("./test/wouldliketorecord_get.json", function(err, d) {
-              assert.deepEqual(JSON.parse(d), JSON.parse('{"hello":"world"}'));
-              done();
-            });
           } catch (e) {
             done(e);
           }
+        });
+        fs.watch("./test/", function(event, filename) {
+          console.log("changed file is : ", filename);
+          if (filename !== "wouldliketorecord_get.json") return;
+          fs.readFile("./test/" + filename, function(err, d) {
+            assert.deepEqual(JSON.parse(d), JSON.parse('{"hello":"world"}'));
+            done();
+          });
         });
       });
     });
