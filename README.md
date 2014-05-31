@@ -1,14 +1,7 @@
 Stubcell [![Build Status](https://travis-ci.org/yosuke-furukawa/stubcell.svg?branch=master)](https://travis-ci.org/yosuke-furukawa/stubcell)
 ---------------
 
-Stub Server for test project.
-
-
-Some Stub servers have some disappointing points.
-
-- cannot validate JSON.
-- does not use JSON5, so i cannot write comments in the JSON file and cannot write trailing comma.
-- launch https server by default (Stubby...)
+Stub server to develop client-side project.
 
 Features
 ---------------
@@ -25,6 +18,13 @@ Stubcell has the following features.
 
 Difference from other stub tools
 -----------------
+
+Almost Stub servers have some disappointing points.
+
+- cannot validate JSON.
+- does not use JSON5, so i cannot write comments in the JSON file and cannot write trailing comma.
+
+For example:
 
 - [stubby](https://github.com/mrak/stubby4node) always launch https server and cannot validate json, so if json is invalid, you should check the value in client side.
 
