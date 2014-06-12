@@ -30,6 +30,15 @@ describe('Stubcell return filepath', function(){
       assert.equal(file, "/test/abc/id.json");
     });
   });
+  describe("/abc/:id", function(){
+    it("should return /abc/abc_get.json", function(){
+      var file = stubcell.fileFromRequest("/abc/:id", "", {
+        method: "GET",
+        url: "/abc/abc"
+      }, __dirname);
+      assert.equal(file, __dirname + "/abc/abc_get.json");
+    });
+  });
 });
 
 describe('Stubcell server', function(){
@@ -105,6 +114,22 @@ describe('Stubcell server', function(){
         res.on("end", function() {
           try {
             assert.equal(JSON.parse(data).message, "abc");
+            done();
+          } catch (e) {
+            done(e);
+          }
+        });
+      });
+    });
+    it("should return abc:def for /abc/abc.json when request abc/abc", function(done){
+      http.get("http://localhost:3000/abc/abc", function(res){
+        var data = '';
+        res.on("data", function(chunk) {
+          data += chunk;
+        });
+        res.on("end", function() {
+          try {
+            assert.equal(JSON.parse(data).abc, "def");
             done();
           } catch (e) {
             done(e);

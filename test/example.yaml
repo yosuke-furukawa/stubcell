@@ -5,6 +5,13 @@
   response:
     status: 200
     body: '{message: "yes i am"}'
+# should return abc.json
+-
+  request:
+    url: /abc/:id
+    method: GET
+  response:
+    status: 200
 -
   request:
     url: /test/:id
