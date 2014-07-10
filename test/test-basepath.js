@@ -62,13 +62,6 @@ describe('Stubcell server should set json basepath', function(){
             done(e);
           }
         });
-        fs.watch("./test/base/test/", {persistent: true },function(event, filename) {
-          console.log("changed file is : ", filename);
-          fs.readFile("./test/base/test/record_get.json", function(err, d) {
-            assert.deepEqual(JSON.parse(d), JSON.parse('{"test":"record"}'));
-            done();
-          });
-        });
       });
     });
   });
