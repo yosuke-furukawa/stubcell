@@ -51,7 +51,7 @@
       id: 1234
   response:
     status: 200
-    file: test/example/querybody.json
+    file: example/querybody.json
 -
   request:
     url: /example/abc
@@ -64,7 +64,7 @@
     method: GET
   response:
     status: 200
-    file: test/example.json
+    file: example.json
 -
   #jsonrpc sum
   request:
@@ -76,4 +76,4 @@
       params: [123, 456]
   response:
     status: 200
-    file: test/jsonrpc/sum.json
+    file: jsonrpc/sum.json
