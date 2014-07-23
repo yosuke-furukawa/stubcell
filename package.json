@@ -42,6 +42,7 @@
     "espower-loader": "^0.7.0",
     "intelli-espower-loader": "^0.1.0",
     "mocha": "^1.18.2",
-    "power-assert": "^0.7.1"
+    "power-assert": "^0.7.1",
+    "request": "^2.38.0"
   }
 }
