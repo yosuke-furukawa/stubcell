@@ -1,0 +1,31 @@
+-
+  request:
+    url: /cors/:id
+    method: GET
+  response:
+    status: 200
+    body: '{message:"cors"}'
+
+-
+  request:
+    url: /cors/:id
+    method: POST
+  response:
+    status: 200
+    body: '{message:"cors"}'
+
+-
+  request:
+    url: /cors/:id
+    method: PUT
+  response:
+    status: 200
+    body: '{message:"cors"}'
+
+-
+  request:
+    url: /cors/:id
+    method: DELETE
+  response:
+    status: 200
+    body: '{message:"cors"}'
