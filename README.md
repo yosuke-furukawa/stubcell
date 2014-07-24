@@ -15,6 +15,7 @@ Stubcell has the following features.
 - Support querystring and body (2014/05/21)
 - Support recording json (2014/05/23)
 - Support Command Line tool (2014/05/26)
+- Support [Cross-Origin Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS) (2014/07/24)
 
 Difference from other stub tools
 -----------------
@@ -106,6 +107,15 @@ $ npm install stubcell
   response:
     status: 200
     file: querystringbody.json
+
+# support writing body directly
+-
+  request:
+    url: /write/directly
+    method: GET
+  response:
+    status: 200
+    body: '{"message": "hello"}'
 ```
 
 ## need to write jsons
@@ -178,6 +188,16 @@ var options = {
     basepath: "", // default is options.basepath
     // request redirectTo.
     proxy : "http://echo.jsontest.com" // default is http://localhost:3001
+  },
+  // loose compare request params (headers, query, body) and entry
+  looseCompare: true,
+  // cors option (default true)
+  cors: false,
+  //   or set each headers
+  cors: {
+    "Access-Control-Allow-Origin": "example.com",
+    "Access-Control-Allow-Methods": "GET",
+    "Access-Control-Allow-Fields": "secret"
   }
 };
 stubcell.loadEntry(__dirname + "/example.yaml", options);
