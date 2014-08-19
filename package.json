@@ -39,6 +39,7 @@
     "yamljs": "^0.1.5"
   },
   "devDependencies": {
+    "connect": "^3.1.1",
     "espower-loader": "^0.7.0",
     "intelli-espower-loader": "^0.1.0",
     "mocha": "^1.18.2",
