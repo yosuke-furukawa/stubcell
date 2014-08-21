@@ -8,7 +8,7 @@ stubcell.loadEntry(__dirname + "/base.yaml", {
   basepath: "test/base",
   debug: true,
   record: {
-    proxy: "http://echo.jsontest.com"
+    target: "http://echo.jsontest.com"
   }
 });
 var app = stubcell.server();
