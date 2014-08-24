@@ -35,7 +35,8 @@
     "express": "^4.1.1",
     "glob": "^4.0.2",
     "json5": "^0.2.0",
-    "stubrec": "^0.2.3",
+    "path-to-regexp": "^1.0.0",
+    "stubrec": "^0.3.0",
     "yamljs": "^0.1.5"
   },
   "devDependencies": {
