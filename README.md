@@ -187,7 +187,7 @@ var options = {
     // json store base path
     basepath: "", // default is options.basepath
     // request redirectTo.
-    proxy : "http://echo.jsontest.com" // default is http://localhost:3001
+    target : "http://echo.jsontest.com" // default is http://localhost:3001
   },
   // loose compare request params (headers, query, body) and entry
   looseCompare: true,
@@ -259,7 +259,7 @@ $ npm install stubcell -g
 ```
 
 ```sh
-$ stubcell --port 3000 --entry ./entry.yaml --record_proxy http://echo.jsontest.com
+$ stubcell --port 3000 --entry ./entry.yaml --record_target http://echo.jsontest.com
 ```
 
 ## commandline arguments
@@ -274,7 +274,7 @@ $ stubcell --port 3000 --entry ./entry.yaml --record_proxy http://echo.jsontest.
       -V, --version                         output the version number
       --port <n>                            server start port, default is 8090
       --entry [entry filepath]              entry yaml file, default is /Users/furukawa.yosuke/Program/stubcell/entry.yaml
-      --record_proxy [record proxy server]  record proxy server, default is null (no record file)
+      --record_target [record target server]  record target server, default is null (no record file)
       --silent                              hide detail info, default is false
 ```
 
