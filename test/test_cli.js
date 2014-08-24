@@ -1,7 +1,7 @@
 var spawn = require("child_process").spawn;
 var http = require("http");
 var assert = require("assert");
-var stubcell = spawn("./bin/stubcell.js", ["--port", 3005, "--entry", "./test/example.yaml", "--record_proxy", "http://echo.jsontest.com"]);
+var stubcell = spawn("./bin/stubcell.js", ["--port", 3005, "--entry", "./test/example.yaml", "--record_target", "http://echo.jsontest.com"]);
 
 stubcell.stdout.on("data", function(data) {
   console.log(""+data);
