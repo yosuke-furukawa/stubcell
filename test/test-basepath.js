@@ -42,6 +42,9 @@ describe('Stubcell server should set json basepath', function(){
   });
   describe("request", function(){
     this.timeout(10000);
+    after(function(){
+      fs.unlinkSync(__dirname + "/base/test/record_get.json");
+    });
     it("should return test/base/test/record_get.json", function(done){
       http.get("http://localhost:3000/test/record", function(res){
         var data = '';

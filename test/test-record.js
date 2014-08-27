@@ -26,6 +26,7 @@ describe('Stubcell server', function(){
     });
   });
   after(function(done) {
+    fs.unlinkSync(__dirname + "/wouldliketorecord_get.json");
     server.on("close", function(){
       backendServer.on("close", done);
       backendServer.close();
