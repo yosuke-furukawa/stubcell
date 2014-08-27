@@ -1,0 +1,15 @@
+-
+  request:
+    url: /sample.html
+    method: GET
+  response:
+    status: 200
+    file:   nojson/sample.html
+
+-
+  request:
+    url: /sample.csv
+    method: GET
+  response:
+    status: 200
+    file:   nojson/sample.csv
