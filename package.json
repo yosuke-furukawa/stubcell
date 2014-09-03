@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "body-parser": "^1.2.0",
+    "colo": "^0.1.0",
     "commander": "^2.2.0",
     "deep-equal": "~0.2.1",
     "deferred": "^0.7.1",
