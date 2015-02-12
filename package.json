@@ -29,22 +29,22 @@
   },
   "dependencies": {
     "body-parser": "^1.2.0",
-    "colo": "^0.1.0",
+    "colo": "^0.3.1",
     "commander": "^2.2.0",
-    "deep-equal": "~0.2.1",
+    "deep-equal": "^1.0.0",
     "deferred": "^0.7.1",
     "express": "^4.1.1",
     "glob": "^4.0.2",
-    "json5": "^0.2.0",
+    "json5": "^0.4.0",
     "path-to-regexp": "^1.0.0",
     "stubrec": "^0.3.0",
-    "yamljs": "^0.1.5"
+    "yamljs": "^0.2.1"
   },
   "devDependencies": {
-    "espower-loader": "^0.7.0",
-    "intelli-espower-loader": "^0.1.0",
-    "mocha": "^1.18.2",
-    "power-assert": "^0.7.1",
+    "espower-loader": "^0.10.0",
+    "intelli-espower-loader": "^0.6.0",
+    "mocha": "^2.1.0",
+    "power-assert": "^0.10.1",
     "request": "^2.38.0"
   }
 }
