@@ -5,12 +5,12 @@ var path = require("path");
 var package = require("../package.json");
 
 program.version(package.version)
-       .option("--port <n>", "server start port, default is 8090", parseInt)
-       .option("--entry [entry filepath]", "entry yaml file, default is " + process.cwd() + "/entry.yaml ")
-       .option("--basepath [stub json basepath]", "json basepath, default is entry.yaml parent path ")
+       .option("-p,--port <n>", "server start port, default is 8090", parseInt)
+       .option("-e,--entry [entry filepath]", "entry yaml file, default is " + process.cwd() + "/entry.yaml ")
+       .option("-b,--basepath [stub json basepath]", "json basepath, default is entry.yaml parent path ")
        .option("--record_target [record target server]", "record target server, default is null (no record file)")
-       .option("--silent", "hide detail info, default is false")
-       .parse(process.argv)
+       .option("-s,--silent", "hide detail info, default is false")
+       .parse(process.argv);
 
 var stubcell = new Stubcell();
 var entry = program.entry || process.cwd() + "/entry.yaml";
