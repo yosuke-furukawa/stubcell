@@ -11,6 +11,7 @@ program.version(package.version)
        .option("--record_target [record target server]", "record target server, default is null (no record file)")
        .option("-s,--silent", "hide detail info, default is false")
        .option("-l,--loose", "compare loose")
+       .option("-v,--verbose", "verbose")
        .parse(process.argv);
 
 var stubcell = new Stubcell();
@@ -29,9 +30,11 @@ var app = stubcell.server();
 
 var app = app.listen(port);
 app.on("listening", function(){
-  console.log("\033[32m" + "Listening on " + port+"\033[39m");
-  console.log("\033[32m" + "entry yaml is " + entry+"\033[39m");
-  console.log("\033[32m" + "silent is " + !debug+"\033[39m");
-  console.log("\033[32m" + "record proxy is " + record.proxy+"\033[39m");
-  console.log("\033[32m" + "loose compare " + program.loose+"\033[39m");
+  if(program.verbose){
+    console.log("\033[32m" + "Listening on " + port+"\033[39m");
+    console.log("\033[32m" + "entry yaml is " + entry+"\033[39m");
+    console.log("\033[32m" + "silent is " + !debug+"\033[39m");
+    console.log("\033[32m" + "record proxy is " + record.proxy+"\033[39m");
+    console.log("\033[32m" + "loose compare " + program.loose+"\033[39m");
+  }
 });
