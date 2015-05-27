@@ -31,6 +31,7 @@
     "body-parser": "^1.2.0",
     "colo": "^0.3.1",
     "commander": "^2.2.0",
+    "daemon": "^1.1.0",
     "deep-equal": "^1.0.0",
     "deferred": "^0.7.1",
     "express": "^4.1.1",
