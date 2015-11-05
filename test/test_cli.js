@@ -1,24 +1,31 @@
 var spawn = require("child_process").spawn;
 var http = require("http");
 var assert = require("assert");
-var stubcell = spawn("./bin/stubcell.js", ["--port", 3005, "--entry", "./test/example.yaml", "--record_target", "http://echo.jsontest.com"]);
 
-stubcell.stdout.on("data", function(data) {
-  console.log(""+data);
-  if (/Listening on/.test(data)) {
-    http.get("http://localhost:3005/hello/world", function(res){
-      var data = "";
-      res.on("data", function(chunk){
-        data += chunk;
-      });
-      res.on("end", function(){
-        console.log(""+data);
-        assert.deepEqual({"hello":"world"}, JSON.parse(data));
-        stubcell.kill("SIGHUP");
-      });
+describe("client test", function(){
+  var port = 3010;
+
+  it("should work well", function(done){
+    var stubcell = spawn("./bin/stubcell.js", [
+      "--port", port, "--entry", "./test/example.yaml",
+      "--record_target", "http://echo.jsontest.com"]);
+
+    stubcell.stdout.on("data", function(data) {
+      if (/Listening on/.test(data)) {
+        http.get("http://localhost:"+port+"/hello/world", function(res){
+          var data = "";
+          res.on("data", function(chunk){
+            data += chunk;
+          });
+          res.on("end", function(){
+            assert.deepEqual({"hello":"world"}, JSON.parse(data));
+            stubcell.kill("SIGHUP");
+          });
+        });
+      }
     });
-  }
-});
-stubcell.on("close", function(){
-  console.log("finished");
+    stubcell.on("close", function(){
+      done();
+    });
+  });
 });

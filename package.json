@@ -4,7 +4,7 @@
   "description": "stub server tool",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require intelli-espower-loader && node test/test_cli.js"
+    "test": "mocha --require intelli-espower-loader"
   },
   "repository": {
     "type": "git",
