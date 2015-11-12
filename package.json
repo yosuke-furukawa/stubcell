@@ -35,7 +35,7 @@
     "deep-equal": "^1.0.0",
     "deferred": "^0.7.1",
     "express": "^4.1.1",
-    "glob": "^5.0.2",
+    "glob": "^6.0.1",
     "json5": "^0.4.0",
     "path-to-regexp": "^1.0.0",
     "stubrec": "^0.3.0",
