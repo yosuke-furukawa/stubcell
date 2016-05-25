@@ -1,21 +1,24 @@
-var StubCell = require("../index");
-var stubcell = new StubCell();
-var http = require("http");
-var fs = require("fs");
-var assert = require("power-assert");
-
-stubcell.loadEntry(__dirname + "/base.yaml", {
+const StubCell = require("../index");
+const stubcell = new StubCell();
+const http = require("http");
+const fs = require("fs");
+const assert = require("power-assert");
+const PORTS = require("../util/PORTS");
+const ECHO_SERVER_PORT = PORTS.next();
+const TEST_SERVER_PORT = PORTS.next();
+stubcell.loadEntry(__dirname + "./base.yaml", {
   basepath: "test/base",
   debug: true,
   record: {
-    target: "http://echo.jsontest.com"
+    target: `http://localhost:${ECHO_SERVER_PORT}`
   }
 });
-var app = stubcell.server();
+const app = stubcell.server();
+const server = app.listen(TEST_SERVER_PORT);
+
 describe('Stubcell server should set json basepath', function(){
-  var server;
+  const server;
   beforeEach(function(done) {
-    server = app.listen(3000);
     server.on("listening", done);
   });
   afterEach(function(done) {
@@ -25,7 +28,7 @@ describe('Stubcell server should set json basepath', function(){
   describe("request", function(){
     it("should return test/base/test/base_get.json", function(done){
       http.get("http://localhost:3000/test/base", function(res){
-        var data = '';
+        const data = '';
         res.on("data", function(chunk) {
           data += chunk;
         });
