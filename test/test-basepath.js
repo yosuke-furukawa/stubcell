@@ -8,12 +8,27 @@ stubcell.loadEntry(__dirname + "/base.yaml", {
   basepath: "test/base",
   debug: true,
   record: {
-    target: "http://echo.jsontest.com"
+    target: "http://localhost:8081"
   }
 });
 var app = stubcell.server();
 describe('Stubcell server should set json basepath', function(){
   var server;
+  var jsonserver;
+
+  before(function(done){
+    var http = require("http");
+    var server = http.createServer(function(req, res){
+      res.end(JSON.stringify({test: "record"}));
+    });
+    jsonserver = server.listen(8081);
+    jsonserver.on("listening", function(){
+      done();
+    });
+  });
+  after(function(){
+    jsonserver.close();
+  });
   beforeEach(function(done) {
     server = app.listen(3000);
     server.on("listening", done);
