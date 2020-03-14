@@ -30,7 +30,7 @@
   "dependencies": {
     "body-parser": "^1.2.0",
     "colo": "^1.0.0",
-    "commander": "^4.0.0",
+    "commander": "^5.0.0",
     "daemon": "^1.1.0",
     "deep-equal": "^1.0.0",
     "deferred": "^0.7.1",
