@@ -30,21 +30,21 @@
   "dependencies": {
     "body-parser": "^1.2.0",
     "colo": "^1.0.0",
-    "commander": "^4.0.0",
+    "commander": "^5.0.0",
     "daemon": "^1.1.0",
-    "deep-equal": "^1.0.0",
+    "deep-equal": "^2.0.1",
     "deferred": "^0.7.1",
     "express": "^4.1.1",
     "glob": "^7.0.3",
-    "json5": "^0.5.0",
-    "path-to-regexp": "^1.0.0",
+    "json5": "^2.1.2",
+    "path-to-regexp": "^6.1.0",
     "stubrec": "^0.3.0",
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "espower-loader": "^1.0.0",
     "intelli-espower-loader": "^1.0.0",
-    "mocha": "^3.0.2",
+    "mocha": "^7.1.1",
     "power-assert": "^1.0.0",
     "request": "^2.38.0"
   }
