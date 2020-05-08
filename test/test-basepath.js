@@ -8,18 +8,30 @@ stubcell.loadEntry(__dirname + "/base.yaml", {
   basepath: "test/base",
   debug: true,
   record: {
-    target: "http://echo.jsontest.com"
+    target: "http://localhost:3001",
+    debug: true
   }
 });
 var app = stubcell.server();
 describe('Stubcell server should set json basepath', function(){
   var server;
-  beforeEach(function(done) {
-    server = app.listen(3000);
-    server.on("listening", done);
+  var backendServer;
+  before(function(done) {
+    backendServer = http.createServer(function(req, res){
+      var data = req.url.split("/");
+      res.writeHead(200, {'Content-Type': 'application/json'});
+      res.end(JSON.stringify({[data[1]]: data[2]}));
+    }).listen(3001);
+    backendServer.on("listening", function(){
+      server = app.listen(3000);
+      server.on("listening", done);
+    });
   });
-  afterEach(function(done) {
-    server.on("close", done);
+  after(function(done) {
+    server.on("close", function(){
+      backendServer.on("close", done);
+      backendServer.close();
+    });
     server.close();
   });
   describe("request", function(){
@@ -41,7 +53,6 @@ describe('Stubcell server should set json basepath', function(){
     });
   });
   describe("request", function(){
-    this.timeout(10000);
     after(function(){
       fs.unlinkSync(__dirname + "/base/test/record_get.json");
     });
@@ -54,10 +65,8 @@ describe('Stubcell server should set json basepath', function(){
         res.on("end", function() {
           try {
             assert.equal(JSON.parse(data).test, "record");
-            setTimeout(done, 5000);
             fs.readFile("./test/base/test/record_get.json", function(err, d) {
-              // error ignore file is not created.
-              if (err) return;
+              if (err) throw new Error(err);
               assert.deepEqual(JSON.parse(d), JSON.parse('{"test":"record"}'));
               done();
             });
