@@ -19,7 +19,6 @@ describe('Stubcell server', function(){
     it("should return 'you look me!' when no match entries", function(done){
       http.get("http://localhost:3000/dio", function(res){
         var data = '';
-        console.log(res.statusCode);
         assert.equal(res.statusCode, 200);
         res.on("data", function(chunk) {
           data += chunk;
