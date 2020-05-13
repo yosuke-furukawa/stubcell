@@ -1646,9 +1646,10 @@ strip-json-comments@2.0.1:
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
   integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
 
-stubrec@mayflower/stubrec#master:
-  version "0.4.0"
-  resolved "https://codeload.github.com/mayflower/stubrec/tar.gz/4addb02362bc6bfcfdc1deda44ee174f6e03b1cd"
+stubrec@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/stubrec/-/stubrec-0.4.1.tgz#a4156032185bcad5616ef9bb40fa954004ba0cb9"
+  integrity sha512-XQk0mdgRjve6DwOe9c0NrbWnUNR5Vo7rVOP71YhZ2HH9t1yb4pRMr7NXfBCG+S/ubGQEKwT/HxZZO1G11735Jw==
   dependencies:
     mkdirp "^1.0.4"
     str-stream "^0.1.2"
