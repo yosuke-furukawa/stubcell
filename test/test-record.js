@@ -34,7 +34,6 @@ describe('Stubcell server', function(){
     server.close();
   });
   describe("request", function(){
-    this.timeout(10000);
     it("should return {hello:world}", function(done){
       http.get("http://localhost:3000/wouldliketorecord", function(res){
         var data = '';
@@ -44,9 +43,7 @@ describe('Stubcell server', function(){
         res.on("end", function() {
           try {
             assert.equal(JSON.parse(data).hello, "world");
-            setTimeout(done, 5000);
             fs.readFile("./test/wouldliketorecord_get.json", function(err, d) {
-              if (err) return;
               assert.deepEqual(JSON.parse(d), JSON.parse('{"hello":"world"}'));
               done();
             });
@@ -54,7 +51,7 @@ describe('Stubcell server', function(){
             done(e);
           }
         });
-      });
+      }).end();
     });
   });
 });

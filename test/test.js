@@ -59,7 +59,6 @@ describe('Stubcell server', function(){
           data += chunk;
         });
         res.on("end", function() {
-          //console.log(data);
           try {
             assert.equal(JSON.parse(data).message, "yes i am");
             done();
@@ -77,7 +76,6 @@ describe('Stubcell server', function(){
           data += chunk;
         });
         res.on("end", function() {
-          //console.log(data);
           try {
             assert.equal(JSON.parse(data).message, "Hello world");
             done();
@@ -163,7 +161,7 @@ describe('Stubcell server', function(){
         res.on("end", function() {
           try {
             data = JSON.parse(data);
-            assert.equal(data.error, "Bad object");
+            assert.equal(data.error, 'JSON5: invalid end of input at 7:1');
             done();
           } catch (e) {
             done(e);

@@ -1,7 +1,6 @@
 var StubCell = require("../index");
 var http = require("http");
 var assert = require("power-assert");
-var request = require("request");
 
 describe('Stubcell server with cors', function(){
   it('set cors', function(){
@@ -32,51 +31,43 @@ describe('Stubcell server with cors', function(){
       server.close();
     });
     it("GET request", function(done){
-      request({
-        url: "http://localhost:4000/cors/1",
+      http.request("http://localhost:4000/cors/1", {
         method: "GET",
         headers: {origin: "http://example.com"},
-        proxy: ""
-      }, function(err, res){
+      }, function(res){
         assert(res.headers["access-control-allow-origin"], "*");
         done();
-      });
+      }).end();
     });
     it("POST request", function(done){
-      request({
-        url: "http://localhost:4000/cors/1",
+      http.request("http://localhost:4000/cors/1", {
         method: "POST",
         headers: createCorsHeader("http://example.com", "POST", "X-SAMPLE-Timestamp"),
-        proxy: ""
-      }, function(err, res){
+      }, function(res){
         assert(res.headers["access-control-allow-origin"], "*");
         assert(res.headers["access-control-allow-methods"], "GET, POST, PUT, DELETE");
         done();
-      });
+      }).end();
     });
     it("PUT request", function(done){
-      request({
-        url: "http://localhost:4000/cors/1",
+      http.request("http://localhost:4000/cors/1", {
         method: "PUT",
         headers: createCorsHeader("http://example.com", "PUT", "X-SAMPLE-Timestamp"),
-        proxy: ""
-      }, function(err, res){
+      }, function(res){
         assert(res.headers["access-control-allow-origin"], "*");
         assert(res.headers["access-control-allow-methods"], "GET, POST, PUT, DELETE");
         done();
-      });
+      }).end();
     });
     it("DELETE request", function(done){
-      request({
-        url: "http://localhost:4000/cors/1",
+      http.request("http://localhost:4000/cors/1", {
         method: "DELETE",
         headers: createCorsHeader("http://example.com", "DELETE", "X-SAMPLE-Timestamp"),
-        proxy: ""
-      }, function(err, res){
+      }, function(res){
         assert(res.headers["access-control-allow-origin"], "*");
         assert(res.headers["access-control-allow-methods"], "GET, POST, PUT, DELETE");
         done();
-      });
+      }).end();
     });
   });
 });

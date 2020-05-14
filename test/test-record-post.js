@@ -40,7 +40,7 @@ describe('Stubcell server', function(){
         path : '/jsonrpc',
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json' 
+          'Content-Type': 'application/json'
         }
       };
       var req = http.request(opt, function(res){
