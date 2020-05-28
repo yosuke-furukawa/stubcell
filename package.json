@@ -42,9 +42,9 @@
     "yamljs": "^0.3.0"
   },
   "devDependencies": {
-    "espower-loader": "^1.0.0",
-    "intelli-espower-loader": "^1.0.0",
-    "mocha": "^7.1.2",
-    "power-assert": "^1.0.0"
+    "espower-loader": "1.2.2",
+    "intelli-espower-loader": "1.0.1",
+    "mocha": "7.1.2",
+    "power-assert": "1.6.1"
   }
 }
