@@ -44,7 +44,7 @@
   "devDependencies": {
     "espower-loader": "1.2.2",
     "intelli-espower-loader": "1.0.1",
-    "mocha": "7.1.2",
+    "mocha": "^7.2.0",
     "power-assert": "1.6.1"
   }
 }
